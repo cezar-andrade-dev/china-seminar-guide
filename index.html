@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiro China — Seminário de Capacitação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#182632;
+    --ink-soft:#3c4c58;
+    --porcelain:#eeece6;
+    --porcelain-2:#f6f5f1;
+    --jade:#4a7c6f;
+    --jade-soft:#dce8e4;
+    --canal:#2f5f8a;
+    --canal-soft:#dbe6ee;
+    --tea:#8a6a3a;
+    --tea-soft:#ece2cf;
+    --seal:#a8402f;
+    --line:#c9c4b8;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--porcelain-2);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:5rem 6vw 4rem;
+    background:var(--ink);
+    color:var(--porcelain-2);
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-10%;
+    top:-30%;
+    width:60%;
+    height:160%;
+    border:1px solid rgba(238,236,230,0.08);
+    border-radius:50%;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#a9b8c2;
+    margin-bottom:1.2rem;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    line-height:1.02;
+    margin:0 0 1.1rem;
+    letter-spacing:-0.01em;
+  }
+  .hero p.lede{
+    max-width:620px;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:#c7d0d6;
+    margin:0 0 2.2rem;
+  }
+  .hero-meta{
+    display:flex;
+    gap:2.4rem;
+    flex-wrap:wrap;
+    border-top:1px solid rgba(238,236,230,0.18);
+    padding-top:1.4rem;
+  }
+  .hero-meta div{font-size:.78rem;color:#8fa0ac;letter-spacing:.04em;}
+  .hero-meta strong{
+    display:block;
+    font-family:'Fraunces',serif;
+    font-size:1.3rem;
+    color:var(--porcelain-2);
+    font-weight:500;
+    margin-top:.2rem;
+  }
+
+  /* ---------- Flight cards ---------- */
+  section.flights{
+    padding:3rem 6vw;
+    background:var(--porcelain-2);
+  }
+  .flight-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.6rem 1.8rem;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .flight-card h2{
+    font-family:'Fraunces',serif;
+    font-size:1.15rem;
+    font-weight:600;
+    margin:0 0 .3rem;
+  }
+  .flight-card .sub{
+    font-size:.82rem;
+    color:var(--ink-soft);
+    margin-bottom:1.2rem;
+  }
+  .flight-row{
+    display:grid;
+    grid-template-columns:70px 1fr auto auto;
+    gap:1rem;
+    align-items:center;
+    padding:.85rem 0;
+    border-top:1px solid #eee;
+    font-size:.92rem;
+  }
+  .flight-row:first-of-type{border-top:none;}
+  .flight-row .code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.8rem;
+    color:var(--seal);
+    font-weight:500;
+  }
+  .flight-row .time{
+    font-family:'IBM Plex Mono',monospace;
+    text-align:right;
+    font-size:.85rem;
+    color:var(--ink-soft);
+  }
+  .flight-row .date{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    text-align:right;
+    white-space:nowrap;
+  }
+  .flight-note{
+    margin-top:1rem;
+    font-size:.8rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:.9rem;
+    line-height:1.6;
+  }
+
+  /* ---------- Timeline ---------- */
+  section.timeline{
+    padding:1rem 6vw 5rem;
+    max-width:900px;
+    margin:0 auto;
+    position:relative;
+  }
+  .timeline-head{
+    padding:3rem 0 1.5rem;
+  }
+  .timeline-head .eyebrow{color:var(--ink-soft);}
+  .timeline-head h2{
+    font-family:'Fraunces',serif;
+    font-size:1.9rem;
+    font-weight:500;
+    margin:0;
+  }
+
+  .rail{
+    position:relative;
+    padding-left:2.6rem;
+  }
+  .rail::before{
+    content:"";
+    position:absolute;
+    left:.85rem;
+    top:.4rem;
+    bottom:.4rem;
+    width:2px;
+    background:linear-gradient(to bottom, var(--jade), var(--canal), var(--tea), var(--jade));
+    opacity:.55;
+  }
+
+  .city-band{
+    position:sticky;
+    top:0;
+    z-index:2;
+    margin:0 0 0 -2.6rem;
+    padding:.4rem 0 .4rem 2.6rem;
+    background:linear-gradient(to bottom, var(--porcelain-2) 70%, transparent);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .city-band span{
+    padding:.25rem .6rem;
+    border-radius:20px;
+    color:#fff;
+  }
+  .city-band.pequim span{background:var(--jade);}
+  .city-band.hangzhou span{background:var(--canal);}
+  .city-band.huzhou span{background:var(--tea);}
+
+  .day{
+    position:relative;
+    padding:1.1rem 0 1.6rem;
+  }
+  .day::before{
+    content:"";
+    position:absolute;
+    left:-2.6rem;
+    top:1.4rem;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--porcelain-2);
+    border:2px solid var(--jade);
+  }
+  .day.hangzhou::before{border-color:var(--canal);}
+  .day.huzhou::before{border-color:var(--tea);}
+
+  .day-head{
+    display:flex;
+    align-items:baseline;
+    gap:.7rem;
+    flex-wrap:wrap;
+    margin-bottom:.6rem;
+  }
+  .day-date{
+    font-family:'Fraunces',serif;
+    font-size:1.25rem;
+    font-weight:600;
+  }
+  .day-weekday{
+    font-size:.78rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .slot{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:.9rem;
+    padding:.4rem 0;
+    font-size:.93rem;
+    line-height:1.5;
+  }
+  .slot .t{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    padding-top:.15rem;
+  }
+  .slot .free{color:var(--seal);font-weight:600;}
+  .day-note{
+    margin-top:.5rem;
+    padding:.6rem .8rem;
+    background:#fff;
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+  .day-note em{font-style:normal;color:var(--ink);font-weight:500;}
+
+  /* ---------- Info section ---------- */
+  section.info{
+    padding:4rem 6vw 5rem;
+    background:var(--ink);
+    color:var(--porcelain-2);
+  }
+  section.info .inner{max-width:900px;margin:0 auto;}
+  section.info h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.9rem;
+    margin:0 0 .5rem;
+  }
+  section.info > .inner > p{
+    color:#a9b8c2;
+    max-width:560px;
+    font-size:.92rem;
+    line-height:1.6;
+    margin-bottom:2.4rem;
+  }
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:1.2rem;
+  }
+  .info-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius);
+    padding:1.3rem 1.4rem;
+  }
+  .info-card h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#8fa0ac;
+    margin:0 0 .7rem;
+  }
+  .info-card p{
+    font-size:.88rem;
+    color:#dde3e6;
+    line-height:1.55;
+    margin:0;
+  }
+  .info-card p.todo{color:#7f8fa0;font-style:italic;}
+
+  footer{
+    padding:2rem 6vw;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+
+  @media (max-width:640px){
+    .flight-row{grid-template-columns:56px 1fr;grid-template-areas:"code trecho" "time date";}
+    .flight-row .time{text-align:left;grid-column:1/2;}
+    .flight-row .date{text-align:left;grid-column:2/3;grid-row:2;}
+    .slot{grid-template-columns:70px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Iniciativa de Civilização Global · 09—25 ago 2026</div>
+  <h1>Roteiro China</h1>
+  <p class="lede">Seminário de Capacitação sobre Inovação Cultural e Integração da Diversidade no Brasil. Cronograma completo, voos e informações úteis para cada etapa da viagem — Pequim, Hangzhou e Huzhou.</p>
+  <div class="hero-meta">
+    <div>Duração<strong>17 dias</strong></div>
+    <div>Cidades<strong>Pequim · Hangzhou · Huzhou</strong></div>
+    <div>Saída<strong>09/08 — GIG</strong></div>
+    <div>Retorno<strong>25/08 — GIG</strong></div>
+  </div>
+</header>
+
+<section class="flights">
+  <div class="flight-card">
+    <h2>Voo de ida</h2>
+    <div class="sub">Janela de check-in: +/- 23h30 até 1h30</div>
+
+    <div class="flight-row">
+      <div class="code">EK248</div>
+      <div>Rio de Janeiro (GIG) → Dubai (DXB)<br><span style="color:var(--ink-soft);font-size:.78rem;">14h25 de voo</span></div>
+      <div class="date">09/08/2026</div>
+      <div class="time">03h05 → 00h30 (+1)</div>
+    </div>
+    <div class="flight-row">
+      <div class="code">—</div>
+      <div>Conexão em Dubai</div>
+      <div class="date"></div>
+      <div class="time">3h20</div>
+    </div>
+    <div class="flight-row">
+      <div class="code">EK306</div>
+      <div>Dubai (DXB) → Pequim (PEK)<br><span style="color:var(--ink-soft);font-size:.78rem;">7h35 de voo</span></div>
+      <div class="date">10/08/2026</div>
+      <div class="time">03h50 → 15h25</div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+
+  <div class="rail">
+
+    <div class="city-band pequim"><span>Pequim</span></div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">11 de agosto</span><span class="day-weekday">Terça</span></div>
+      <div class="slot"><div class="t">10:00–10:40</div><div>Apresentação da programação do projeto</div></div>
+      <div class="slot"><div class="t">10:40–11:00</div><div>Coleta de fotos de identificação</div></div>
+      <div class="slot"><div class="t">11:00–12:00</div><div>Cerimônia de abertura</div></div>
+      <div class="slot"><div class="t">12:00–13:30</div><div>Almoço de boas-vindas</div></div>
+      <div class="slot"><div class="t free">14:00–17:00</div><div class="free">Tempo livre</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">12 de agosto</span><span class="day-weekday">Quarta</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Palestra 1</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Palestra 2</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">13 de agosto</span><span class="day-weekday">Quinta</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Palestra 3</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Palestra 4</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">14 de agosto</span><span class="day-weekday">Sexta</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Aula prática 1 — visita + experiência em VR (Realidade Virtual)</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita histórico-cultural — Shouchuang Langyuan Station</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">15 de agosto</span><span class="day-weekday">Sábado</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Visita histórico-cultural — Grande Muralha da China</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita ao mercado de pequenos produtos — Plaza Longde</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">16 de agosto</span><span class="day-weekday">Domingo — Pequim / Hangzhou</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Viagem Pequim → Hangzhou (de avião)</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita histórico-cultural — construção urbana de Hangzhou, Ruas Hefang e Lago Oeste</div></div>
+    </div>
+
+    <div class="city-band hangzhou"><span>Hangzhou</span></div>
+
+    <div class="day hangzhou">
+      <div class="day-head"><span class="day-date">17 de agosto</span><span class="day-weekday">Segunda</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Palestra 5</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita oficial — Ponte Gongchen do Grande Canal Beijing-Hangzhou e Museu do Grande Canal</div></div>
+    </div>
+
+    <div class="day hangzhou">
+      <div class="day-head"><span class="day-date">18 de agosto</span><span class="day-weekday">Terça — Hangzhou / Huzhou</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Aula prática 2</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita oficial — Vila de cultura do chá Meijiawu, Distrito de Xihu, Hangzhou</div></div>
+      <div class="slot"><div class="t">18:00–21:00</div><div>Deslocamento Hangzhou → Huzhou (de ônibus)</div></div>
+    </div>
+
+    <div class="city-band huzhou"><span>Huzhou</span></div>
+
+    <div class="day huzhou">
+      <div class="day-head"><span class="day-date">19 de agosto</span><span class="day-weekday">Quarta</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Aula prática 3 — Vila Lu, Pequena Vila de Turismo Rural Mundial de Huzhou, Zhejiang</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Visita oficial — Antiga vila de Nanxun</div></div>
+    </div>
+
+    <div class="day huzhou">
+      <div class="day-head"><span class="day-date">20 de agosto</span><span class="day-weekday">Quinta — Huzhou / Hangzhou / Pequim</span></div>
+      <div class="slot"><div class="t">—</div><div>Deslocamento Huzhou → Hangzhou (de ônibus)</div></div>
+      <div class="slot"><div class="t">—</div><div>Deslocamento Hangzhou → Pequim (de avião)</div></div>
+      <div class="day-note">Horários dos deslocamentos ainda não confirmados no roteiro original — <em>a preencher</em>.</div>
+    </div>
+
+    <div class="city-band pequim"><span>Pequim</span></div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">21 de agosto</span><span class="day-weekday">Sexta</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Palestra 6</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Palestra 7</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">22 de agosto</span><span class="day-weekday">Sábado</span></div>
+      <div class="slot"><div class="t">09:00–12:00</div><div>Aula prática 4 — Museu da História do Partido Comunista da China</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Palestra 8 — Museu de Artesanato Artístico da China</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">23 de agosto</span><span class="day-weekday">Domingo</span></div>
+      <div class="slot"><div class="t free">Dia inteiro</div><div class="free">Tempo livre</div></div>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="day-date">24/25 de agosto</span><span class="day-weekday">Segunda</span></div>
+      <div class="slot"><div class="t">11:00–12:00</div><div>Cerimônia de encerramento</div></div>
+      <div class="slot"><div class="t">12:00–13:30</div><div>Almoço de despedida</div></div>
+      <div class="slot"><div class="t">14:00–17:00</div><div>Preparação para o retorno dos participantes</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="flights">
+  <div class="flight-card">
+    <h2>Voo de volta</h2>
+    <div class="sub">Retorno para o Rio de Janeiro</div>
+
+    <div class="flight-row">
+      <div class="code">EK307</div>
+      <div>Pequim (PEK) → Dubai (DXB)</div>
+      <div class="date">25/08/2026</div>
+      <div class="time">00h40 → 05h00</div>
+    </div>
+    <div class="flight-row">
+      <div class="code">—</div>
+      <div>Conexão em Dubai</div>
+      <div class="date"></div>
+      <div class="time">3h05</div>
+    </div>
+    <div class="flight-row">
+      <div class="code">EK247</div>
+      <div>Dubai (DXB) → Rio de Janeiro (GIG)</div>
+      <div class="date">25/08/2026</div>
+      <div class="time">08h05 → 15h50</div>
+    </div>
+
+    <div class="flight-note">Chegada prevista ao Rio de Janeiro: 15h50.</div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="inner">
+    <h2>Informações úteis</h2>
+    <p>Espaço para completar com o que os colegas vão precisar em cada etapa. Edite este bloco no <span class="mono">index.html</span> conforme as informações forem confirmadas.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Documentos</h3>
+        <p class="todo">Passaporte, visto, seguro-viagem — a preencher.</p>
+      </div>
+      <div class="info-card">
+        <h3>Clima em agosto</h3>
+        <p class="todo">Pequim / Hangzhou / Huzhou — a preencher.</p>
+      </div>
+      <div class="info-card">
+        <h3>Moeda e pagamentos</h3>
+        <p class="todo">Yuan, cartões aceitos, apps de pagamento — a preencher.</p>
+      </div>
+      <div class="info-card">
+        <h3>Hospedagem</h3>
+        <p class="todo">Hotéis por cidade e endereços — a preencher.</p>
+      </div>
+      <div class="info-card">
+        <h3>Contatos de emergência</h3>
+        <p class="todo">Organização local, embaixada, coordenação do grupo — a preencher.</p>
+      </div>
+      <div class="info-card">
+        <h3>Conectividade</h3>
+        <p class="todo">VPN, SIM local, apps essenciais (WeChat, Alipay, mapas) — a preencher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Roteiro China · Seminário de Capacitação sobre Inovação Cultural e Integração da Diversidade no Brasil</footer>
+
+</body>
+</html>
