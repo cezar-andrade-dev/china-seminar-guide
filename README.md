@@ -2,8 +2,8 @@
 
 Seminário de Capacitação sobre Inovação Cultural e Integração da Diversidade no Brasil no Âmbito da Iniciativa de Civilização Global.
 
-**Página publicada:** `https://SEU-USUARIO.github.io/NOME-DO-REPO/`
-_(troque pelo link real depois de ativar o GitHub Pages — veja abaixo)_
+**Página publicada:** 
+https://cezar-andrade-dev.github.io/china-seminar-guide/
 
 ## O que tem aqui
 
