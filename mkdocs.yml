@@ -1,8 +1,0 @@
-site_name: China Cultural Innovation Guide
-theme:
-  name: material
-nav:
-  - Home: index.md
-  - Itinerary:
-    - Timeline: itinerary/timeline.md
-    - Flights: itinerary/flights.md
