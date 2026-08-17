@@ -1,0 +1,45 @@
+title: "Roteiro China"
+description: "Seminário de Capacitação sobre Inovação Cultural e Integração da Diversidade no Brasil no Âmbito da Iniciativa de Civilização Global"
+lang: pt-BR
+markdown: kramdown
+
+# ---------------------------------------------------------
+# Coleções: cada pasta abaixo vira um "tipo" de página.
+# Para criar uma nova palestra, por exemplo, basta adicionar
+# um arquivo .md dentro de _palestras/ — o layout é aplicado
+# automaticamente (ver "defaults" mais abaixo).
+# ---------------------------------------------------------
+collections:
+  palestras:
+    output: true
+    permalink: /palestras/:slug/
+  palestrantes:
+    output: true
+    permalink: /palestrantes/:slug/
+  visitas:
+    output: true
+    permalink: /visitas/:slug/
+
+# Aplica o layout certo automaticamente para cada coleção,
+# então você não precisa escrever "layout:" em cada arquivo novo.
+defaults:
+  - scope:
+      path: ""
+      type: "palestras"
+    values:
+      layout: "palestra"
+  - scope:
+      path: ""
+      type: "palestrantes"
+    values:
+      layout: "palestrante"
+  - scope:
+      path: ""
+      type: "visitas"
+    values:
+      layout: "visita"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
