@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<main class="detail palestra">
+
+  <div class="detail-eyebrow">
+    <span class="tag palestra">Palestra</span>
+    {% if page.data %}{{ page.data }}{% endif %}
+  </div>
+
+  <h1>{{ page.title }}</h1>
+
+  <div class="meta-row">
+    {% if page.data %}
+    <div>Data<strong>{{ page.data }}</strong></div>
+    {% endif %}
+    {% if page.horario %}
+    <div>Horário<strong>{{ page.horario }}</strong></div>
+    {% endif %}
+    {% if page.local %}
+    <div>Local<strong>{{ page.local }}</strong></div>
+    {% endif %}
+    {% if page.palestrante %}
+    <div>Palestrante<strong>{{ page.palestrante }}</strong></div>
+    {% endif %}
+  </div>
+
+  <div class="detail-body">
+    {{ content }}
+  </div>
+
+  {% if page.materiais %}
+  <div class="info-box">
+    <h3>Materiais de apoio</h3>
+    <p>
+      {% for item in page.materiais %}
+        <a href="{{ item.url }}">{{ item.titulo }}</a>{% unless forloop.last %} · {% endunless %}
+      {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+</main>
