@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<main class="detail palestrante">
+
+  <div class="detail-eyebrow">
+    <span class="tag palestrante">Palestrante</span>
+    {% if page.instituicao %}{{ page.instituicao }}{% endif %}
+  </div>
+
+  <h1>{{ page.title }}</h1>
+
+  <div class="meta-row">
+    {% if page.cargo %}
+    <div>Cargo<strong>{{ page.cargo }}</strong></div>
+    {% endif %}
+    {% if page.instituicao %}
+    <div>Instituição<strong>{{ page.instituicao }}</strong></div>
+    {% endif %}
+  </div>
+
+  <div class="detail-body">
+    {{ content }}
+  </div>
+
+  {% if page.palestras %}
+  <div class="info-box">
+    <h3>Palestras deste participante</h3>
+    <p>
+      {% for slug in page.palestras %}
+        {% assign p = site.palestras | where: "slug", slug | first %}
+        {% if p %}<a href="{{ p.url }}">{{ p.title }}</a>{% unless forloop.last %} · {% endunless %}{% endif %}
+      {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+</main>
